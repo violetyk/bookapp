@@ -32,6 +32,8 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'dalli'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development do
@@ -40,10 +42,13 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
 end
-# gem 'capistrano-rails', group: :development
+
+group :production do
+  gem 'execjs'
+  gem 'libv8'
+  gem 'therubyracer', :platforms => :ruby
+end
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-
-gem 'dalli'
