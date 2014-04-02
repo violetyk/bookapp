@@ -47,6 +47,10 @@ set :bundle_flags, ''
 
 
 # 'capistrano3/unicorn'
+set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :unicorn_roles, :app
+set :unicorn_config_path, "#{current_path}/config/unicorn/#{fetch(:rails_env)}.rb"
+set :unicorn_options, -> { '-l 0.0.0.0:8080' }
 after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
