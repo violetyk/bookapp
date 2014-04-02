@@ -42,22 +42,27 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 
-
 # "capistrano/bundler"
 set :bundle_flags, ''
 
-# set :bundle_gemfile, "Gemfile"
 
+# 'capistrano3/unicorn'
+after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
+    invoke 'unicorn:restart'
   end
+
+  # task :restart do
+    # on roles(:app), in: :sequence, wait: 5 do
+
+      # # Your restart mechanism here, for example:
+      # # execute :touch, release_path.join('tmp/restart.txt')
+    # end
+  # end
 
   after :publishing, :restart
 
