@@ -1,0 +1,9 @@
+<h1>Users#new</h1>
+<%= form_for(@user) do |f| %>
+  ユーザ名：<%= f.text_field :username %> <br />
+  メールアドレス：<%= f.text_field :email %> <br />
+  パスワード<%= f.password_field :password %> <br />
+  <%= f.submit %> <br />
+<% end %>
+
+

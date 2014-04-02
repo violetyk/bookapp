@@ -1,0 +1,8 @@
+<h1>Authors#new</h1>
+<%= form_for(@author) do |f| %>
+  ユーザ：<%= f.collection_select(:user_id, @users, :id, :username) %> <br />
+  ペンネーム<%= f.text_field :name %> <br />
+  <%= f.submit %> <br />
+<% end %>
+
+

@@ -1,0 +1,13 @@
+<h1>Books#new</h1>
+<%= form_for(@book) do |f| %>
+  書名：<%= f.text_field :title %> <br />
+  価格：<%= f.text_field :price %> <br />
+
+  <% Author.all.each do |a| %>
+    <%= check_box_tag("book[author_ids][]", a.id) %><%= a.name %> <br />
+  <% end %>
+
+  <%= f.submit %> <br />
+<% end %>
+
+

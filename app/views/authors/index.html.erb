@@ -1,0 +1,7 @@
+<h1>Authors#index</h1>
+<ul>
+  <% @authors.each do |a| %>
+  <li><%= link_to a.name, edit_author_path(a.id) %></li>
+  <% end %>
+  <li><%= link_to '[New Author]', new_author_path %></li>
+</ul>
