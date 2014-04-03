@@ -60,6 +60,13 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
+  desc 'Flush Memcache'
+  task :clear_dalli_cache do
+    on roles(:web) do
+      execute "cd #{current_path} && RAILS_ENV=production bundle exec rake cache:clear; echo 'success!'"
+    end
+  end
+
   # task :restart do
     # on roles(:app), in: :sequence, wait: 5 do
 
@@ -79,4 +86,6 @@ namespace :deploy do
     end
   end
 
+  after :finishing, 'deploy:cleanup'
 end
+after :deploy, 'deploy:clear_dalli_cache'
