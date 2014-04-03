@@ -36,9 +36,5 @@ test:
 # Example:
 #   mysql2://myuser:mypass@localhost/somedatabase
 #
-# production:
-  # url: <%= ENV["DATABASE_URL"] %>
 production:
-  <<: *default
-  database: bookapp
-  host: 127.0.0.1
+  url: <%= ENV["DATABASE_URL"] %>
