@@ -1,4 +1,4 @@
-# require 'action_dispatch/middleware/session/dalli_store'
+require 'action_dispatch/middleware/session/dalli_store'
 
 app_path = '/home/vagrant/bookapp'
 app_shared_path = "#{app_path}/shared"
