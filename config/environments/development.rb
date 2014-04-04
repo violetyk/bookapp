@@ -34,7 +34,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  #
+  
+  config.cache_store = :dalli_store, 'localhost', { namespace: 'bookapp', compress: true, :expires_in => 3.hour }
   # config.cache_store = :dalli_store,
     # 'cache-1.example.com', 複数立ち上げる場合
     # 'cache-2.example.com',

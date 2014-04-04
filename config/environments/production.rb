@@ -53,7 +53,12 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  # config.cache_store = :dalli_store, 'localhost', { namespace: 'bookapp', compress: true, :expires_in => 3.hour }
+  # config.cache_store = :dalli_store,
+    # 'cache-1.example.com', 複数立ち上げる場合
+    # 'cache-2.example.com',
+    # 'localhost',
+  # { :namespace => 'bookapp', :expires_in => 1.day, :compress => true }
+  config.cache_store = :dalli_store, 'localhost', { namespace: 'bookapp', compress: true, :expires_in => 3.hour }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -81,11 +86,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # config.cache_store = :dalli_store,
-    # 'cache-1.example.com', 複数立ち上げる場合
-    # 'cache-2.example.com',
-    # 'localhost',
-  # { :namespace => 'bookapp', :expires_in => 1.day, :compress => true }
 
 end
