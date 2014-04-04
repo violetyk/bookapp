@@ -1,5 +1,3 @@
-require 'action_dispatch/middleware/session/dalli_store'
-
 app_path = '/home/vagrant/bookapp'
 app_shared_path = "#{app_path}/shared"
 
@@ -31,8 +29,8 @@ after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 
   # 各ワーカープロセスがforkしたmemcachedとのコネクションを共有しないように、リセット
-  if defined?(ActiveSupport::Cache::DalliStore) && Rails.cache.is_a?(ActiveSupport::Cache::DalliStore)
-    Rails.cache.reset
-    ObjectSpace.each_object(ActionDispatch::Session::DalliStore) { |obj| obj.reset }
-  end
+  # if defined?(ActiveSupport::Cache::DalliStore) && Rails.cache.is_a?(ActiveSupport::Cache::DalliStore)
+    # Rails.cache.reset
+    # ObjectSpace.each_object(ActionDispatch::Session::DalliStore) { |obj| obj.reset }
+  # end
 end
