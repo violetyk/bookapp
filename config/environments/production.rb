@@ -82,10 +82,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.cache_store = :dalli_store,
+  # config.cache_store = :dalli_store,
     # 'cache-1.example.com', 複数立ち上げる場合
     # 'cache-2.example.com',
-    'localhost',
-  { :namespace => 'bookapp', :expires_in => 1.day, :compress => true }
+    # 'localhost',
+  # { :namespace => 'bookapp', :expires_in => 1.day, :compress => true }
 
 end
