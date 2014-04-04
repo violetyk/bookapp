@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc1'
+gem 'rails', '4.1.0.rc2'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use unicorn as the app server
 # gem 'unicorn'
 
-gem 'dalli'
+# gem 'dalli'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -88,4 +88,4 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 end
-after :deploy, 'deploy:clear_dalli_cache'
+# after :deploy, 'deploy:clear_dalli_cache'
